@@ -12,7 +12,8 @@ imap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
 vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
 ```
 
-You can see all available snippets in the [snippets directory](snippets).
+You can see all available snippets in the [snippets directory](snippets). Feel
+free to create PRs with your favorite mappings and suggestions!
 
 For more information, see the [plugin's documentation](doc/zensnippets.txt)
 online or inside Vim with `:help zensnippets`.
