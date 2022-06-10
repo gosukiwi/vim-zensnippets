@@ -23,9 +23,9 @@ function! zensnippets#load(snippets_file) abort
         let expansion = ''
       else
         if expansion == ''
-          let expansion = line
+          let expansion = trim(line)
         else
-          let expansion = expansion . '<CR>' . line
+          let expansion = expansion . '<CR>' . trim(line)
         endif
       endif
     endif
@@ -39,7 +39,7 @@ function! zensnippets#load(snippets_file) abort
 endfunction
 
 function! zensnippets#expand(expansion) abort
-  return '<F12>' . a:expansion . '<F12>'
+  return a:expansion
 endfunction
 
 function! zensnippets#setup(snippet_file) abort
