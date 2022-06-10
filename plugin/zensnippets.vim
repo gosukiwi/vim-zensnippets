@@ -2,7 +2,7 @@
 " ==============================================================================
 " A really simple snippet implementation.
 
-" Base mappings for expansion and placeholder navigation
+" Base mappings for snippet expansion and placeholder navigation
 nnoremap <Plug>ZensnippetsNextPlaceholder :call search('{%[^%]*%}')<CR>va{
 imap <Plug>ZensnippetsExpand <C-v><C-a><C-]><Esc><Plug>ZensnippetsNextPlaceholder
 
