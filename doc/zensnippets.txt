@@ -1,0 +1,37 @@
+*zensnippets.txt*  Minimalist snippets
+
+Author: Federico Ramirez <https://github.com/gosukiwi/>
+License: Same terms as Vim itself (see |license|)
+
+Help on using zensnippets                                            *zensnippets* 
+
+    1. INTRODUCTION ................................. |zensnippets-intro|
+    2. MAPPINGS ..................................... |zensnippets-mappings|
+
+================================================================================
+ 1. INTRODUCTION                                               *zensnippets-intro*
+
+This plugin provides you with several snippets. It has no dependencies, and is
+written in less than 100 lines of VimScript.
+
+Snippets themselves vary from filetype to filetype. The formatting is really
+easy to understand. You can see all snippets in the plugin's "snippets"
+directory.
+
+================================================================================
+ 2. MAPPINGS                                                *zensnippets-mappings*
+
+You can define your own mappings for expansion. By default, `<C-x><C-\>` will
+trigger the snippet expansion, and `<C-/>` will cycle through the
+placeholders.
+
+You can define your own mappings if you don't like this:
+
+>
+    let g:zensnippets_disable_default_mappings = 1
+    imap <silent> <C-x><C-\> <Plug>ZensnippetsExpand
+    nmap <silent> <C-\> <Plug>ZensnippetsNextPlaceholder
+    imap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
+    vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
+<
+vim:tw=78:ts=8:ft=help:norl:
