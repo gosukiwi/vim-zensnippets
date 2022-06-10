@@ -1,3 +1,5 @@
+" A state-machine-like parser. It takes a '.snippets' file and returns a hash
+" with the snippets/expansions.
 function! zensnippets#load(snippets_file) abort
   let snippets = {}
   let lines = readfile(a:snippets_file)
@@ -38,10 +40,6 @@ function! zensnippets#load(snippets_file) abort
   return snippets
 endfunction
 
-function! zensnippets#expand(expansion) abort
-  return a:expansion
-endfunction
-
 function! zensnippets#setup(snippet_file) abort
   let snippets = zensnippets#load(a:snippet_file)
   for snippet in keys(snippets)
@@ -51,6 +49,6 @@ function! zensnippets#setup(snippet_file) abort
     "
     " In order to expand a mapping manually, you must type the abbreviation, and
     " then press `<C-a>`. This is handled by the plugin mappings.
-    execute "inoreabbrev <buffer> " . snippet . " " . zensnippets#expand(snippets[snippet])
+    execute "inoreabbrev <buffer> " . snippet . " " . snippets[snippet]
   endfor
 endfunction
