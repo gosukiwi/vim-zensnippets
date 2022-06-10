@@ -2,9 +2,12 @@
 " ==============================================================================
 " A really simple snippet implementation.
 
+" Base mappings for expansion and placeholder navigation
+nnoremap <Plug>ZensnippetsNextPlaceholder :call search('{%[^%]*%}')<CR>va{
+imap <Plug>ZensnippetsExpand <C-v><C-a><C-]><Esc><Plug>ZensnippetsNextPlaceholder
+
 " Expand snippet with `<C-x><C-\>`. Go to next placeholder with `<C-\>`.
-nnoremap <Plug>GoToNextPlaceholder :call search('{%[^%]*%}')<CR>va{
-imap <silent> <C-x><C-\> <C-v><C-a><C-]><Esc><Plug>GoToNextPlaceholder
-nmap <silent> <C-\> <Plug>GoToNextPlaceholder
-imap <silent> <C-\> <Esc><Plug>GoToNextPlaceholder
-vmap <silent> <C-\> <Esc><Plug>GoToNextPlaceholder
+imap <silent> <C-x><C-\> <Plug>ZensnippetsExpand
+nmap <silent> <C-\> <Plug>ZensnippetsNextPlaceholder
+imap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
+vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
