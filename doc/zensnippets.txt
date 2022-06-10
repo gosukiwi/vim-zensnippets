@@ -18,20 +18,34 @@ Snippets themselves vary from filetype to filetype. The formatting is really
 easy to understand. You can see all snippets in the plugin's "snippets"
 directory.
 
+You can list all available snippets for the current buffer with
+`:Zensnippets`.
+
 ================================================================================
  2. MAPPINGS                                                *zensnippets-mappings*
 
-You can define your own mappings for expansion. By default, `<C-x><C-\>` will
-trigger the snippet expansion, and `<C-/>` will cycle through the
-placeholders.
+By default, `<C-x><C-\>` will trigger the snippet expansion, and `<C-/>` will
+cycle through the placeholders.
 
-You can define your own mappings if you don't like this:
+You can also use `<C-x><C-x><C-\>` from insert mode, or `<C-\>` from normal
+mode, to see all available mappings for the current buffer.
+
+You can define your own mappings if you don't like the defaults:
 
 >
     let g:zensnippets_disable_default_mappings = 1
+
+    " Expand snippet
     imap <silent><expr> <C-x><C-\> zensnippets#expand()
+
+    " Go to next placeholder
     nmap <silent> <C-\> <Plug>ZensnippetsNextPlaceholder
     imap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
     vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
+
+    " List all available snippets for the current buffer
+    inoremap <silent> <C-x><C-x><C-\> <C-o>:call zensnippets#showall()<CR>
+    nnoremap <silent> <C-\> :call zensnippets#showall()<CR>
 <
+
 vim:tw=78:ts=8:ft=help:norl:

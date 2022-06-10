@@ -72,3 +72,15 @@ function! zensnippets#expand() abort
     return ''
   endif
 endfunction
+
+function! zensnippets#showall() abort
+  if !exists('b:snippets')
+    echo 'Zensnippets: No snippets defined for this filetype'
+    return
+  endif
+
+  for snippet in keys(b:snippets)
+    let first_line = split(b:snippets[snippet], '<CR>')[0]
+    echo snippet . "\t" . first_line . '...'
+  endfor
+endfunction
