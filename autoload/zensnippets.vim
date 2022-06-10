@@ -41,14 +41,34 @@ function! zensnippets#load(snippets_file) abort
 endfunction
 
 function! zensnippets#setup(snippet_file) abort
-  let snippets = zensnippets#load(a:snippet_file)
-  for snippet in keys(snippets)
+  let b:snippets = zensnippets#load(a:snippet_file)
+  for snippet in keys(b:snippets)
     " Snippets use `:help inoreabbrev` to make abbreviations. In order to not
     " expand while typing, it uses a special, rarely-used character: ^A
     " (CTRL-A). In the mapping, it's inserted using `<C-v><C-a>`.
     "
     " In order to expand a mapping manually, you must type the abbreviation, and
     " then press `<C-a>`. This is handled by the plugin mappings.
-    execute "inoreabbrev <buffer> " . snippet . " " . snippets[snippet]
+    execute "inoreabbrev <buffer> " . snippet . " " . b:snippets[snippet]
   endfor
+endfunction
+
+function! zensnippets#getwordstart() abort
+  let line = getline('.')
+  let start = col('.') - 1
+  while start > 0 && line[start - 1] =~ '\a'
+    let start -= 1
+  endwhile
+
+  return line[start:]
+endfunction
+
+function! zensnippets#expand() abort
+  let word = zensnippets#getwordstart()
+  if has_key(b:snippets, word)
+    return "\<Plug>ZensnippetsExpand"
+  else
+    echo 'Zensnippets: Snippet not found'
+    return ''
+  endif
 endfunction

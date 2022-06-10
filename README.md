@@ -6,7 +6,7 @@ Customize mappings with:
 
 ```
 let g:zensnippets_disable_default_mappings = 1
-imap <silent> <C-x><C-\> <Plug>ZensnippetsExpand
+imap <silent><expr> <C-x><C-\> zensnippets#expand()
 nmap <silent> <C-\> <Plug>ZensnippetsNextPlaceholder
 imap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
 vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
