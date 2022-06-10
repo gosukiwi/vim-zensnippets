@@ -42,14 +42,15 @@ function! zensnippets#expand(expansion) abort
   return '<F12>' . a:expansion . '<F12>'
 endfunction
 
-function! zensnippets#setup(snippets) abort
-  for snippet in keys(a:snippets)
+function! zensnippets#setup(snippet_file) abort
+  let snippets = zensnippets#load(a:snippet_file)
+  for snippet in keys(snippets)
     " Snippets use `:help inoreabbrev` to make abbreviations. In order to not
     " expand while typing, it uses a special, rarely-used character: ^A
     " (CTRL-A). In the mapping, it's inserted using `<C-v><C-a>`.
     "
     " In order to expand a mapping manually, you must type the abbreviation, and
     " then press `<C-a>`. This is handled by the plugin mappings.
-    execute "inoreabbrev <buffer> " . snippet . " " . zensnippets#expand(a:snippets[snippet])
+    execute "inoreabbrev <buffer> " . snippet . " " . zensnippets#expand(snippets[snippet])
   endfor
 endfunction
