@@ -1,0 +1,21 @@
+[snippet]
+fun
+
+[expansion]
+function ({% args %}) {
+  {% body %}
+}
+
+[snippet]
+afun
+
+[expansion]
+({% args %}) => {
+  {% body %}
+}
+
+[snippet]
+ifun
+
+[expansion]
+({% args %}) => {% body %}
