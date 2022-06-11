@@ -71,7 +71,12 @@ function! zensnippets#showall() abort
   endif
 
   for snippet in keys(b:snippets)
-    let first_line = split(b:snippets[snippet], '<CR>')[0]
-    echo snippet . "\t" . first_line . '...'
+    let lines = split(b:snippets[snippet], "\<CR>")
+    let first_line = lines[0]
+    if len(lines) > 1
+      echo snippet . "\t" . first_line . '...'
+    else
+      echo snippet . "\t" . first_line
+    endif
   endfor
 endfunction
