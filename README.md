@@ -1,7 +1,7 @@
 # zensnippets.vim
 A minimal snippets implementation for Vim. No dependencies.
 
-[![asciicast](https://asciinema.org/a/qAmvsXUGVi713UC15tntVZy4t.svg)](https://asciinema.org/a/qAmvsXUGVi713UC15tntVZy4t)
+[![asciicast](https://asciinema.org/a/ObVSEjSf2JTKFdUFUm8KSIpcE.svg)](https://asciinema.org/a/ObVSEjSf2JTKFdUFUm8KSIpcE)
 
 Expand snippets with `<C-x><C-\>`, navigate placeholders with `<C-\>`.
 
