@@ -23,9 +23,8 @@ inoremap <silent> <C-x><C-x><C-\> <C-o>:call zensnippets#showall()<CR>
 nnoremap <silent> <C-x><C-x><C-\> :call zensnippets#showall()<CR>
 ```
 
-To see all available snippets in the current buffer you can use `<C-\>` in
-normal mode, or `<C-x><C-x><C-\>` in insert mode. Alternatively, just call the
-`:Zensnippets` command.
+To see all available snippets in the current buffer you can use
+`<C-x><C-x><C-\>`. Alternatively, just call the `:Zensnippets` command.
 
 You can see all available snippets in the [snippets directory](snippets). Feel
 free to create PRs with your favorite mappings and suggestions!
