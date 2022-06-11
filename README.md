@@ -4,6 +4,7 @@ A minimal snippets implementation for Vim. No dependencies.
 [![asciicast](https://asciinema.org/a/qAmvsXUGVi713UC15tntVZy4t.svg)](https://asciinema.org/a/qAmvsXUGVi713UC15tntVZy4t)
 
 Expand snippets with `<C-x><C-\>`, navigate placeholders with `<C-\>`.
+
 Customize mappings with:
 
 ```
@@ -22,7 +23,9 @@ inoremap <silent> <C-x><C-x><C-\> <C-o>:call zensnippets#showall()<CR>
 nnoremap <silent> <C-\> :call zensnippets#showall()<CR>
 ```
 
-List all available snippets in the current buffer with `:Zensnippets`.
+To see all available snippets in the current buffer you can use `<C-\>` in
+normal mode, or `<C-x><C-x><C-\>` in insert mode. Alternatively, just call the
+`:Zensnippets` command.
 
 You can see all available snippets in the [snippets directory](snippets). Feel
 free to create PRs with your favorite mappings and suggestions!
