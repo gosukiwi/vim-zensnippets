@@ -3,7 +3,7 @@
 " A really simple snippet implementation.
 
 " Base mapping for placeholder navigation
-nnoremap <Plug>ZensnippetsNextPlaceholder :call search('{%[^%]*%}')<CR>va{
+nnoremap <Plug>ZensnippetsNextPlaceholder :call search('{=[^=]*=}')<CR>va{
 
 if !exists('g:zensnippets_disable_default_mappings') || g:zensnippets_disable_default_mappings == 0
   " Expand snippet. Using `<expr>` triggers recursive mappings, so use
