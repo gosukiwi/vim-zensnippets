@@ -20,7 +20,7 @@ vmap <silent> <C-\> <Esc><Plug>ZensnippetsNextPlaceholder
 
 " List all available snippets for the current buffer
 inoremap <silent> <C-x><C-x><C-\> <C-o>:call zensnippets#showall()<CR>
-nnoremap <silent> <C-\> :call zensnippets#showall()<CR>
+nnoremap <silent> <C-x><C-x><C-\> :call zensnippets#showall()<CR>
 ```
 
 To see all available snippets in the current buffer you can use `<C-\>` in

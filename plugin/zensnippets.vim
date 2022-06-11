@@ -2,13 +2,13 @@
 " ==============================================================================
 " A really simple snippet implementation.
 
-" Base mappings for snippet expansion and placeholder navigation
+" Base mapping for placeholder navigation
 nnoremap <Plug>ZensnippetsNextPlaceholder :call search('{%[^%]*%}')<CR>va{
-imap <Plug>ZensnippetsExpand <C-v><C-a><C-]><Esc><Plug>ZensnippetsNextPlaceholder
 
 if !exists('g:zensnippets_disable_default_mappings') || g:zensnippets_disable_default_mappings == 0
-  " Expand snippet
-  imap <silent><expr> <C-x><C-\> zensnippets#expand()
+  " Expand snippet. Using `<expr>` triggers recursive mappings, so use
+  " expression register instead.
+  imap <silent> <C-x><C-\> <C-r>=zensnippets#expand()<CR>
 
   " Go to next placeholder
   nmap <silent> <C-\> <Plug>ZensnippetsNextPlaceholder
@@ -17,7 +17,7 @@ if !exists('g:zensnippets_disable_default_mappings') || g:zensnippets_disable_de
 
   " List all available snippets for the current buffer
   inoremap <silent> <C-x><C-x><C-\> <C-o>:call zensnippets#showall()<CR>
-  nnoremap <silent> <C-\> :call zensnippets#showall()<CR>
+  nnoremap <silent> <C-x><C-x><C-\> :call zensnippets#showall()<CR>
 endif
 
 command! Zensnippets call zensnippets#showall()
