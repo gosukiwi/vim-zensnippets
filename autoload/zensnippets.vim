@@ -70,7 +70,7 @@ function! zensnippets#showall() abort
     return
   endif
 
-  for snippet in keys(b:snippets)
+  for snippet in sort(keys(b:snippets))
     let lines = split(b:snippets[snippet], "\<CR>")
     let first_line = lines[0]
     if len(lines) > 1
