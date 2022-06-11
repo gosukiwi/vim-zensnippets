@@ -44,18 +44,18 @@ function! zensnippets#setup(snippet_file) abort
   let b:snippets = zensnippets#load(a:snippet_file)
 endfunction
 
-function! zensnippets#getwordstart() abort
+function! zensnippets#getword() abort
   let line = getline('.')
   let start = col('.') - 1
   while start > 0 && line[start - 1] =~ '\a'
     let start -= 1
   endwhile
 
-  return line[start:]
+  return line[start:col('.') - 2]
 endfunction
 
 function! zensnippets#expand() abort
-  let word = zensnippets#getwordstart()
+  let word = zensnippets#getword()
   if has_key(b:snippets, word)
     return "\<C-w>" . b:snippets[word] . "\<Esc>:call search('{%[^%]*%}')\<CR>va{"
   else
