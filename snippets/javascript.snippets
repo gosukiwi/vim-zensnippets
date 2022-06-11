@@ -19,3 +19,53 @@ ifun
 
 [expansion]
 ({= args =}) => {= body =}
+
+[snippet]
+if
+
+[expansion]
+if ({= condition =}) {
+  {= body =}
+}
+
+[snippet]
+ifelse
+
+[expansion]
+if ({= condition =}) {
+  {= body =}
+} else {
+  {= body =}
+}
+
+[snippet]
+while
+
+[expansion]
+while ({= condition =}) {
+  {= body =}
+}
+
+[snippet]
+for
+
+[expansion]
+for (let {= i =}; {= i =} < {= array.length =}; {= i++ =}) {
+  {= body =}
+}
+
+[snippet]
+forin
+
+[expansion]
+for (const {= item =} in {= enumerable =}) {
+  {= body =}
+}
+
+[snippet]
+forof
+
+[expansion]
+for (const {= item =} of {= iterable =}) {
+  {= body =}
+}
