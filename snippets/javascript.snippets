@@ -69,3 +69,15 @@ forof
 for (const {= item =} of {= iterable =}) {
   {= body =}
 }
+
+[snippet]
+switch
+
+[expansion]
+switch ({= expression =}) {
+  case {= condition =}:
+    {= case body =}
+    break;
+  default:
+    {= default case body =}
+}
