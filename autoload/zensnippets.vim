@@ -41,7 +41,11 @@ function! zensnippets#load(snippets_file) abort
 endfunction
 
 function! zensnippets#setup(snippet_file) abort
-  let b:snippets = zensnippets#load(a:snippet_file)
+  if exists('b:snippets')
+    call extend(b:snippets, zensnippets#load(a:snippet_file))
+  else
+    let b:snippets = zensnippets#load(a:snippet_file)
+  endif
 endfunction
 
 function! zensnippets#getword() abort
