@@ -59,6 +59,10 @@ function! zensnippets#getword() abort
 endfunction
 
 function! zensnippets#expand() abort
+  if !exists('b:snippets')
+    return
+  endif
+
   let word = zensnippets#getword()
   if has_key(b:snippets, word)
     return "\<C-w>" . b:snippets[word] . "\<Esc>:call search('{=[^=]*=}')\<CR>va{"
