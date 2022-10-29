@@ -50,7 +50,7 @@ while ({= condition =}) {
 for
 
 [expansion]
-for (let {= i =}; {= i =} < {= array.length =}; {= i++ =}) {
+for (let {= i =} = 0; {= i =} < {= array.length =}; {= i++ =}) {
   {= body =}
 }
 
@@ -81,3 +81,19 @@ switch ({= expression =}) {
   default:
     {= default case body =}
 }
+
+[snippet]
+it
+
+[expansion]
+it("{= name =}", function () {
+  {= body =}
+})
+
+[snippet]
+desc
+
+[expansion]
+describe("{= name =}", function () {
+  {= body =}
+})
